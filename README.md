@@ -39,7 +39,7 @@ A fenti entitásokra a következő szabályok vonatkoznak:
     - futtasd: php artisan key:generate
 7. Futtasd az adatbázis migrációt és seeder-t! Néhány mintadat és egy admin user jön létre.
     - futtasd: php artisan migrate --seed
-8. Ha minden OK, indítható a project.
+8. Ha minden OK, indítható a project. A dashboard-on jelenik meg az aktuálisan futó kampány. 
     - futtasd: php artisan serve
     - http://127.0.0.1:8000/admin
     - email: info@biotechusa.com
