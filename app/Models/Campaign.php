@@ -18,7 +18,7 @@ class Campaign extends Model
     /**
      * @var array|string[]
      */
-    protected array $fillable = ['name', 'description', 'start_date', 'finish_date', 'is_accepted'];
+    protected $fillable = ['name', 'description', 'start_date', 'finish_date', 'is_accepted'];
 
     /**
      * @return HasMany

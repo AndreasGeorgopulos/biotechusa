@@ -18,7 +18,7 @@ class Coupon extends Model
     /**
      * @var array|string[]
      */
-    protected array $fillable = ['campaign_id', 'code', 'discount_value', 'discount_type'];
+    protected $fillable = ['campaign_id', 'code', 'discount_value', 'discount_type'];
 
     /**
      * @return HasOne

@@ -18,7 +18,7 @@ class Post extends Model
     /**
      * @var array|string[]
      */
-    protected array $fillable = ['campaign_id', 'title', 'description', 'published_at'];
+    protected $fillable = ['campaign_id', 'title', 'description', 'published_at'];
 
     /**
      * @return HasOne
