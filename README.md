@@ -1,62 +1,44 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Backend fejlesztő próbafeladat
+A feladat egy kampánymenedzser leprogramozása, amely az alábbi feltételek alapján
+képes kampányokat ki és bekapcsolni:
 
-## About Laravel
+- A kampányoknak van kezdeti és végdátuma.
+- A kampányokhoz tartozhatnak Termékek, Blog posztok és Kuponok.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+A fenti entitásokra a következő szabályok vonatkoznak:
+- Egy blog poszt nem publikálódhat hétvégén
+- Egy termék publikálódhat bármelyik nap
+- Egy kupon csak a hónap első 3 és utolsó 3 napján aktiválódhat
+- Nem futhat két kampány egyidőben, ugyanazokra az elemekre
+- A kampányok futtatásának feltétele, hogy jóváhagyott státuszban legyenek
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Fejlesztéshez használt eszközök:
+- MS Windows 10
+- PHP 7.4.15
+- MariaDB 10.4.17
+- Xampp: v3.2.4
+- PhpStorm 2021.1.4
+- Laravel 8.4
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+###Telepítés és használat:
+1. Klónozd a projectet github-ról!
+    - futtasd: git clone https://github.com/AndreasGeorgopulos/biotechusa.git biotechusa
+2. Futtasd a Composer-t a telepítéshez!
+    - composer install
+3. Hozz létre egy adatbázist!
+4. Hozd létre a .env file-t és másold át a .env.example tartalmát!
+5. Add meg az adatbázis eléréshez szükséges adatokat a .env file-ban!
+    - DB_DATABASE
+    - DB_USERNAME
+    - DB_PASSWORD
+6. Generáld le az alkalmazáshoz szükséges kulcsot!
+    - futtasd: php artisan key:generate
+7. Futtasd az adatbázis migrációt és seeder-t! Néhány mintadat és egy admin user jön létre.
+    - futtasd: php artisan migrate --seed
+8. Ha minden OK, indítható a project:
+    - futtasd: php artisan serve
+    - http://127.0.0.1:8000/admin
+    - email: info@biotechusa.com
+    - password: aA123456
