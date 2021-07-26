@@ -26,7 +26,7 @@ A fenti entitásokra a következő szabályok vonatkoznak:
 1. Klónozd a projectet github-ról!
     - futtasd: git clone https://github.com/AndreasGeorgopulos/biotechusa.git biotechusa
 2. Futtasd a Composer-t a telepítéshez!
-    - composer install
+    - futtasd: composer install
 3. Hozz létre egy adatbázist!
 4. Hozd létre a .env file-t és másold át a .env.example tartalmát!
 5. Add meg az adatbázis eléréshez szükséges adatokat a .env file-ban!
