@@ -19,6 +19,8 @@ class UserSeeder extends Seeder
             'name' => 'System Administrator',
             'email' => 'info@biotechusa.com',
             'password' => Hash::make('aA123456'),
+            'is_active' => 1,
+            'is_admin' => 1,
         ]);
     }
 }
