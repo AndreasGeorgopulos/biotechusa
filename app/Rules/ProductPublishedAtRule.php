@@ -4,6 +4,7 @@ namespace App\Rules;
 
 use App\Models\Campaign;
 use Carbon\Carbon;
+use Carbon\Exceptions\InvalidFormatException;
 use Illuminate\Contracts\Validation\Rule;
 
 class ProductPublishedAtRule implements Rule
@@ -33,8 +34,12 @@ class ProductPublishedAtRule implements Rule
             return false;
         }
 
-        $value = Carbon::make($value)->format('Y-m-d');
-        return $value >= $this->campaign->start_date && $value <= $this->campaign->finish_date;
+        try {
+            $value = Carbon::make($value)->format('Y-m-d');
+            return $value >= $this->campaign->start_date && $value <= $this->campaign->finish_date;
+        } catch (InvalidFormatException $exception) {
+            return false;
+        }
     }
 
     /**

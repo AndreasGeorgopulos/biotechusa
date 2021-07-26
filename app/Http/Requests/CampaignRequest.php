@@ -16,7 +16,7 @@ class CampaignRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -36,7 +36,6 @@ class CampaignRequest extends FormRequest
                 'required',
                 'date',
                 'date_format:Y-m-d',
-                'after_or_equal:today',
                 new CampaignStartDateRule($this->get('id')),
             ],
             'finish_date' => [
@@ -48,8 +47,7 @@ class CampaignRequest extends FormRequest
             ],
             'is_accepted' => [
                 'required',
-                'numeric',
-                Rule::in([0, 1]),
+                Rule::in(['0', '1']),
             ],
         ];
     }

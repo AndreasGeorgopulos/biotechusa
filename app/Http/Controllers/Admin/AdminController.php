@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Campaign;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -45,13 +47,11 @@ class AdminController extends Controller
 
     public function Dashboard ()
     {
+        $date = Carbon::now()->format('Y-m-d');
         return view('admin.dashboard', [
             'site_title' => trans('Dashboard'),
             'site_subtitle' => 'Version 3.0',
-            'breadcrumb' => [
-                ['title' => trans('Admin'), 'url' => route('admin_dashboard'), 'icon' => 'fa-dashboard'],
-                ['title' => trans('Dashboard')],
-            ]
+            'actual_campaign' => Campaign::where('start_date', '<=', $date)->where('finish_date', '>=', $date)->where('is_accepted', 1)->first(),
         ]);
     }
 }

@@ -27,6 +27,10 @@ class CampaignStartDateRule implements Rule
      */
     public function passes($attribute, $value)
     {
+        if (empty($value)) {
+            return false;
+        }
+
         return ! (bool) Campaign::where(function ($q) use ($value) {
             $q->where('start_date', '<=', $value);
             $q->where('finish_date', '>=', $value);

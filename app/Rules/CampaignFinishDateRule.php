@@ -4,6 +4,7 @@ namespace App\Rules;
 
 use App\Models\Campaign;
 use Carbon\Carbon;
+use Carbon\Exceptions\InvalidFormatException;
 use Illuminate\Contracts\Validation\Rule;
 
 class CampaignFinishDateRule implements Rule
@@ -15,9 +16,12 @@ class CampaignFinishDateRule implements Rule
      *
      * @return void
      */
-    public function __construct(string $start_date)
+    public function __construct($start_date)
     {
-        $this->carbon = Carbon::make($start_date);
+        try {
+            $this->carbon = Carbon::make($start_date);
+        } catch (InvalidFormatException $exception) {
+        }
     }
 
     /**

@@ -14,7 +14,7 @@ class CouponRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -31,7 +31,7 @@ class CouponRequest extends FormRequest
             ],
             'code' => [
                 'required',
-                'unique:coupons,code',
+                Rule::unique('coupons', 'code')->ignore($this->get('id')),
             ],
             'discount_value' => [
                 'required',

@@ -25,6 +25,6 @@ class Post extends Model
      */
     public function campaign(): HasOne
     {
-        return $this->hasOne(Campaign::class);
+        return $this->hasOne(Campaign::class, 'id', 'campaign_id');
     }
 }

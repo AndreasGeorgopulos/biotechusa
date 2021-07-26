@@ -24,14 +24,10 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin', 
         });
         Route::match(['get'], '/dashboard', 'AdminController@Dashboard')->name('admin_dashboard');
 
-        // Cache ürítés
-        Route::match(['get'], '/clear_cache', 'AdminController@ClearCache')->name('admin_clear_cache');
-
-        // Users
-        Route::match(['get'], '/users', 'UserController@index')->name('admin_users_index');
-        //Route::match(['get', 'post'], '/users/create', 'UserController@create')->name('admin_users_create');
-        //Route::match(['get', 'post'], '/users/edit/{id}', 'UserController@edit')->name('admin_users_edit');
-
+        Route::resource('/campaigns', 'CampaignController');
+        Route::resource('/products', 'ProductController');
+        Route::resource('/posts', 'PostController');
+        Route::resource('/coupons', 'CouponController');
     });
 });
 

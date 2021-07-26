@@ -19,8 +19,7 @@
         <br />
         <div class="alert alert-warning alert-dismissible">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-            <h4><i class="icon fa fa-ban"></i> Hiba!</h4>
-            A mentés a következő hiányosságok miatt sikertelen.
+            <h4><i class="icon fa fa-ban"></i> Error!</h4>
             <ul>
                 @foreach($errors->all() as $e)
                     <li>{{$e}}</li>
@@ -33,7 +32,7 @@
         <br />
         <div class="alert alert-success alert-dismissible">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-            <h4><i class="fa fa-check"></i> Siker!</h4>
+            <h4><i class="fa fa-check"></i> Success!</h4>
             {{session('success_message')}}
         </div>
     @endif
