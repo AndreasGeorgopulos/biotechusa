@@ -46,4 +46,4 @@ A fenti entitásokra a következő szabályok vonatkoznak:
     - password: aA123456
 
 ### Használat:
-Bejelentkezés után a dashboard-on jelenik meg az aktuálisan futó kampány. Az adminisztrációs oldalakon hozhatunk létre, illetve módosíthatunk kampányokat illetve a hozzájuk tartozó termékeket, posztokat és kuponokat.
+Bejelentkezés után a dashboard-on jelenik meg az aktuálisan futó kampány. Az adminisztrációs oldalakon hozhatunk létre, illetve módosíthatunk kampányokat és a hozzájuk tartozó termékeket, posztokat és kuponokat.
