@@ -23,7 +23,7 @@ A fenti entitásokra a következő szabályok vonatkoznak:
 - Laravel 8.4
 - Composer 2.0.14
 
-### Telepítés és használat:
+### Telepítés:
 1. Klónozd a projectet github-ról!
     - futtasd: git clone https://github.com/AndreasGeorgopulos/biotechusa.git biotechusa
     - lépj be a biotechusa mappába
@@ -44,3 +44,6 @@ A fenti entitásokra a következő szabályok vonatkoznak:
     - http://127.0.0.1:8000/admin
     - email: info@biotechusa.com
     - password: aA123456
+
+### Használat:
+Bejelentkezés után a dashboard-on jelenik meg az aktuálisan futó kampány. Az adminisztrációs oldalakon hozhatunk létre, illetve módosíthatunk kampányokat illetve a hozzájuk tartozó termékeket, posztokat és kuponokat.
