@@ -22,7 +22,7 @@ A fenti entitásokra a következő szabályok vonatkoznak:
 - PhpStorm 2021.1.4
 - Laravel 8.4
 
-###Telepítés és használat:
+### Telepítés és használat:
 1. Klónozd a projectet github-ról!
     - futtasd: git clone https://github.com/AndreasGeorgopulos/biotechusa.git biotechusa
 2. Futtasd a Composer-t a telepítéshez!
