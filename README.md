@@ -26,6 +26,7 @@ A fenti entitásokra a következő szabályok vonatkoznak:
 ### Telepítés és használat:
 1. Klónozd a projectet github-ról!
     - futtasd: git clone https://github.com/AndreasGeorgopulos/biotechusa.git biotechusa
+    - lépj be a biotechusa mappába
 2. Futtasd a Composer-t a telepítéshez!
     - futtasd: composer install
 3. Hozz létre egy adatbázist!
