@@ -21,6 +21,7 @@ A fenti entitásokra a következő szabályok vonatkoznak:
 - Xampp: v3.2.4
 - PhpStorm 2021.1.4
 - Laravel 8.4
+- Composer 2.0.14
 
 ### Telepítés és használat:
 1. Klónozd a projectet github-ról!
@@ -37,7 +38,7 @@ A fenti entitásokra a következő szabályok vonatkoznak:
     - futtasd: php artisan key:generate
 7. Futtasd az adatbázis migrációt és seeder-t! Néhány mintadat és egy admin user jön létre.
     - futtasd: php artisan migrate --seed
-8. Ha minden OK, indítható a project:
+8. Ha minden OK, indítható a project.
     - futtasd: php artisan serve
     - http://127.0.0.1:8000/admin
     - email: info@biotechusa.com
