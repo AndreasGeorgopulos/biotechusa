@@ -67,63 +67,84 @@
                 </div>
             </div>
 
-            <hr/>
-            <h2>Published products</h2>
-            <div class="row">
-                @foreach($actual_campaign->products->where('published_at', '<=', date('Y-m-d H:i:s')) as $model)
+            @php($products = $actual_campaign->products->where('published_at', '<=', date('Y-m-d H:i:s')))
+            @if(count($products))
+                <hr/>
+                <h2>Published products</h2>
+                <div class="row">
+                    @foreach($products as $model)
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="info-box">
+                                <span class="info-box-icon bg-aqua"><i class="ion ion-ios-gear-outline"></i></span>
+
+                                <div class="info-box-content">
+                                    <span class="info-box-text">{{$model->name}}</span>
+                                    <span class="info-box-text">{{$model->published_at}}</span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                    @endforeach
+                </div>
+            @endif
+
+            @php($posts = $actual_campaign->posts->where('published_at', '<=', date('Y-m-d H:i:s')))
+            @if(count($posts))
+                <hr/>
+                <h2>Published posts</h2>
+                <div class="row">
+                    @foreach($posts as $model)
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="info-box">
+                                <span class="info-box-icon bg-aqua"><i class="ion ion-ios-gear-outline"></i></span>
+
+                                <div class="info-box-content">
+                                    <span class="info-box-text">{{$model->title}}</span>
+                                    <span class="info-box-text">{{$model->published_at}}</span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                    @endforeach
+                </div>
+            @endif
+
+            @php($coupons = $actual_campaign->coupons->whereNull('activated_at'))
+            @if(count($coupons))
+                <hr/>
+                <h2>Usable coupons</h2>
+                <div class="row">
+                    @foreach($coupons as $model)
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="info-box">
+                                <span class="info-box-icon bg-aqua"><i class="ion ion-ios-gear-outline"></i></span>
+
+                                <div class="info-box-content">
+                                    <span class="info-box-text">{{$model->code}}</span>
+                                    <span class="info-box-number"></span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                    @endforeach
+
                     <div class="col-md-3 col-sm-6 col-xs-12">
                         <div class="info-box">
-                            <span class="info-box-icon bg-aqua"><i class="ion ion-ios-gear-outline"></i></span>
+                            <form method="post" action="{{ URL::to(route('admin_coupon_activate')) }}">
+                                {{csrf_field()}}
+                                <input type="hidden" name="campaign_id" value="{{$actual_campaign->id}}" />
 
-                            <div class="info-box-content">
-                                <span class="info-box-text">{{$model->name}}</span>
-                                <span class="info-box-text">{{$model->published_at}}</span>
-                            </div>
-                            <!-- /.info-box-content -->
+                                <input type="text" name="code" class="form-control" placeholder="Add valid coupon code" />
+
+                                <button class="btn btn-sm btn-primary">Activate coupon</button>
+                            </form>
                         </div>
-                        <!-- /.info-box -->
                     </div>
-                @endforeach
-            </div>
-
-            <hr/>
-            <h2>Published posts</h2>
-            <div class="row">
-                @foreach($actual_campaign->posts->where('published_at', '<=', date('Y-m-d H:i:s')) as $model)
-                    <div class="col-md-3 col-sm-6 col-xs-12">
-                        <div class="info-box">
-                            <span class="info-box-icon bg-aqua"><i class="ion ion-ios-gear-outline"></i></span>
-
-                            <div class="info-box-content">
-                                <span class="info-box-text">{{$model->title}}</span>
-                                <span class="info-box-text">{{$model->published_at}}</span>
-                            </div>
-                            <!-- /.info-box-content -->
-                        </div>
-                        <!-- /.info-box -->
-                    </div>
-                @endforeach
-            </div>
-
-            <hr/>
-            <h2>Usable coupons</h2>
-            <div class="row">
-                @foreach($actual_campaign->coupons->whereNull('activated_at') as $model)
-                    <div class="col-md-3 col-sm-6 col-xs-12">
-                        <div class="info-box">
-                            <span class="info-box-icon bg-aqua"><i class="ion ion-ios-gear-outline"></i></span>
-
-                            <div class="info-box-content">
-                                <span class="info-box-text">{{$model->code}}</span>
-                                <span class="info-box-number"></span>
-                            </div>
-                            <!-- /.info-box-content -->
-                        </div>
-                        <!-- /.info-box -->
-                    </div>
-                @endforeach
-            </div>
-
+                </div>
+            @endif
         @else
             <p>There is no actual campaign.</p>
         @endif

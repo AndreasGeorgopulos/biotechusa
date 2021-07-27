@@ -23,7 +23,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin', 
             return redirect(route('admin_dashboard'));
         });
         Route::match(['get'], '/dashboard', 'AdminController@Dashboard')->name('admin_dashboard');
-
+        Route::match(['post'], '/coupon_activate', 'AdminController@CouponActivate')->name('admin_coupon_activate');
         Route::resource('/campaigns', 'CampaignController');
         Route::resource('/products', 'ProductController');
         Route::resource('/posts', 'PostController');

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CouponActivateRequest;
 use App\Models\Campaign;
+use App\Models\Coupon;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -53,5 +55,19 @@ class AdminController extends Controller
             'site_subtitle' => 'Version 3.0',
             'actual_campaign' => Campaign::where('start_date', '<=', $date)->where('finish_date', '>=', $date)->where('is_accepted', 1)->first(),
         ]);
+    }
+
+    public function CouponActivate(CouponActivateRequest $request)
+    {
+        $validator = Validator::make($request->all(), $request->rules());
+        if ($validator->fails()) {
+            return redirect(route('admin_dashboard'))->withErrors($validator);
+        }
+
+        $model = Coupon::where('code', $request->get('code'))->first();
+        $model->activated_at = Carbon::now()->format('Y-m-d H:i:s');
+        $model->save();
+
+        return redirect(route('admin_dashboard'))->with('success_message', 'Coupon activated successfully');
     }
 }
